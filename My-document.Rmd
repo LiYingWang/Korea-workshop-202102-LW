@@ -1,5 +1,5 @@
 ---
-title: "Spatial data visulization and analysis"
+title: "Introduction to spatial data visulization and analysis Using R"
 author: "Liying Wang"
 date: "2/22/2021"
 output: html_document:
@@ -31,8 +31,12 @@ If you see a message "Do you want to install from sources the package which need
 Copy and paste the code to your console and run it: 
 devtools::install_github('3wen/legendMap')
 
-## Set up 2: create data folder to store spatial data for this workshop
+## Set up 2: download files 
 
+```{r download-workdshop-data}
+if (!require("usethis")) install.packages("usethis") # to install usethis
+usethis::use_course("LiYingWang/Korea-workshop-202102-LW")
+```
 
 # Making maps
 
