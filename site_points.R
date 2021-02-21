@@ -1,13 +1,13 @@
 # Create a simple dataframe with lat/long values
 
-early_neo <- data.frame(lon = c(runif(5, 126.35, 127), runif(10, 126.65, 127.2)),
-                        lat = c(runif(5, 34.8, 35.45), runif(10, 35.5, 36.4)),
-                        name = paste0("a", 1:15),
+early_neo <- data.frame(lon = c(runif(2, 126.35, 127), runif(8, 126.65, 127.2)),
+                        lat = c(runif(2, 34.8, 35.45), runif(8, 35.5, 36.4)),
+                        name = paste0("a", 1:10),
                         phase = "early neolithic")
 
-late_neo <- data.frame(lon = runif(15, 126.6, 128.3),
-                        lat = runif(15, 35, 36.4),
-                        name = paste0("b", 1:15),
+late_neo <- data.frame(lon = runif(10, 126.6, 128.3),
+                        lat = runif(10, 35, 36.4),
+                        name = paste0("b", 1:10),
                         phase = "late neolithic")
 
 neolithic <- rbind(early_neo, late_neo)
