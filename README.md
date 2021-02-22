@@ -1,4 +1,4 @@
-Introduction to spatial data visulization and analysis Using R
+Introduction to spatial data visualization and analysis Using R
 ================
 Liying Wang, Februry 2021
 
@@ -7,13 +7,12 @@ Liying Wang, Februry 2021
 In this workshop we will practice some techniques for visulizating and analysing
 spatial data using R. Here are the [slides](). The outline of this workshop as below:
 
-1.  Make regional maps 
-2.  Make site maps with labels of sites
+1.  Make a regional map
+2.  Make a site map with labels
 3.  Crop an area from raster data
-4.  Visiualize raster data with shapefiles 
-5.  Extract elevation and make a comparison
-6.  Make a kernel density plot
-7.  Hypothesis testing on sptial distribution
+4.  Extract elevation of sites from vector data 
+5.  Make a kernel density plot
+6.  Hypothesis testing on sptial distribution
 
 If you want to download the code and data from this repository onto your computer, please run the following lines in your R console (please answer 'Yes' to each question that appears in your console):
 
