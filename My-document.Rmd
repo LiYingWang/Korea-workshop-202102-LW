@@ -16,8 +16,8 @@ knitr::opts_chunk$set(echo = TRUE)
 In this workshop, you will learn how to use R to manipulate and visualize spatial data of interest to archaeologists. This rmd file is a demonstration of code and you will work on it step by step to get familiar with spatial data and basic analysis. There are three main topics covered in this workshop:
 
 -Part 1: making maps, including regional map and site map
--Part 2: spatial data manipulation and visualization
--Part 3: spatial data analysis, including density analysis of sites, and hypothesis testing for their distributions
+-Part 2: spatial data manipulation and visualization for raster and vector data
+-Part 3: spatial data analysis and hypothesis testing, including density plot, and hypothesis testing site distributions
 
 Before getting started, make sure you have all packages we will use! If not, run the code below:
  
@@ -42,7 +42,7 @@ usethis::use_course("LiYingWang/Korea-workshop-202102-LW")
 
 Load world data and take a look at the data form, especially the "geometry" column where it stores the coordinates we need for making maps.
 
-## Exercise 1: load data and plot the world map (5 mins)
+## Exercise 001: load data and make a regional map (7 mins)
 
 ```{r load-world-map-data}
 library(rnaturalearth) # provides world map
@@ -62,7 +62,6 @@ ggplot(data = world) +
 
 Now, we want to plot Japan with some countries around it as our regional map. We may want to indicate the countries by adding name label on it. To do this, we need to get the center of the country for adding country labels, and then specify which countries we want to show their names on the map.
 
-## Exercise 2: make a regional map (7 mins)
 
 ```{r create-text-labels}
 library(tidyverse)
@@ -102,7 +101,7 @@ Korea_in_Asia
 
 We also want to make a map with archaeological sites we are interested in. Since we would add points for sites, we have to specify the coordinates of site location first.
 
-## Exercise 3: make site map (7 mins)
+## Exercise 002: make a site map (7 mins)
 
 ```{r site-location}
 # add site location
@@ -180,7 +179,7 @@ The raster data is DEM data downloaded from http://www.earthenv.org/DEM.
 
 We want to crop the area that matches the site map from this DEM data. Here, we use coordinates to create a data frame, convert it to a spatial object, and then use it to crop the raster.
 
-## Exercise 4: crop an area from raster data (7 mins)
+## Exercise 003: crop an area from raster data (7 mins)
 
 ```{r get-raster-data}
 library(raster)
@@ -208,11 +207,13 @@ ps = Polygons(list(p),1) # make lists
 sps = SpatialPolygons(list(ps)) # convert to Spatial Polygons
 crs(sps) <- crs(Korea_raster) # define coordinate reference system
 crop_DEM <- crop(Korea_raster, sps) # crop a raster to the extent of specified spatial object
-plot(crop_DEM)
 summary(crop_DEM)
+plot(crop_DEM)
 ```
 
 We can plot the raster data using ggplot function, which allows us to modify axis, legend, and labels displayed on the plot. To use ggplot, we need to convert the cropped raster to a dataframe.
+
+## Exercise 004: Extract elevation of sites from vector data (7 mins)
 
 ```{r plot-raster-data}
 # cover to a dataframe for ggplot
@@ -225,8 +226,6 @@ ggplot() +
 ```
 
 Now, let's work on vector data and plot it on the raster. We import a shapefile which contains site locations we want to explore. We are curious about the distribution of archaeological sites and how they relate to the elevation of this area.
-
-## Exercise 5: explore shapefile and map it on the raster layer (7 mins)
 
 ```{r read-shapefile}
 crop_DEM_df <- as.data.frame(crop_DEM, xy = TRUE)
@@ -242,9 +241,7 @@ crop_DEM_df %>%
   coord_sf() # all layers use a common CRS
 ```
 
-We are curious about the elevation of the locations of archaeological sites, and would like to compare sites from two phases: early neolithic and late neolithic
-
-## Exercise 6: extract elevation and make a plot to compare sites from two phases (5 mins)
+We are curious about the elevation of the locations of archaeological sites, and would like to compare sites from two phases: early neolithic and late neolithic. Let's extract elevation and make a plot to compare sites from two phases
 
 ```{r elevation-boxplot-two-phases}
 # convert sf (simple feature) to a spatial object
@@ -261,11 +258,11 @@ sites %>%
   theme_minimal()
 ```
 
-# Density analysis and hypothesis testing
+# Spatial data analysis and hypothesis testing
 
 We may want to know the distribution pattern of the sites across this area. We can visualize the density to check any hot spots using kernal density estimation.
 
-## Exercise 7: make a kernel density plot (7 mins)
+## Exercise 5: make a kernel density plot (5 mins)
 
 ```{r kernel-plot-all-sites}
 library(spatstat)
@@ -292,7 +289,7 @@ contour(K1, add=TRUE)
 
 Is the hot spots we observed significant? We can simulate the site locations and testing our hypothesis to determine if the distribution is random or not random.
 
-## Exercise 8: simulation and plot the histogram (7 mins)
+## Exercise 6: hypothesis testing on sptail distribution (7 mins)
 
 ```{r simulation-all-sites}
 # get the mean distance for our observation
@@ -317,7 +314,7 @@ abline(v = ann_p, col="blue") # the observed value
 
 We have looked at the distribution of sites all together, but what if we want to focus on sites from a phase; for example, we want to explore early neolithic sites. We can filter out the phase we want and use the same method to test the distribution patterns of early neolithic sites.
 
-## Quiz: Do the early neolithic sites ramdonly distributed or non-ramdonly distributed? The pattern is clustterd or dispersed? 
+## Additional exercise: Do the early neolithic sites ramdonly distributed or non-ramdonly distributed? The pattern is clustterd or dispersed? 
 
 ```{r kernel-plot-kofun}
 sites_coords_early_neo <-
