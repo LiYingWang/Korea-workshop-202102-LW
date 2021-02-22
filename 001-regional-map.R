@@ -1,7 +1,3 @@
-# download workshop data
-if (!require("usethis")) install.packages("usethis") # to install usethis
-usethis::use_course("LiYingWang/Korea-workshop-202102-LW")
-
 library(rnaturalearth) # provides world map
 library(rnaturalearthdata)
 
