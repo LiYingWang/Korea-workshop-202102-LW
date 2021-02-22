@@ -1,6 +1,5 @@
 library(spatstat)
 library(maptools)
-crop_DEM_df <- as.data.frame(crop_DEM, xy = TRUE)
 
 # get two columns, one longitude and another is latitude
 sites_coords <-

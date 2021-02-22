@@ -26,7 +26,7 @@ usethis::use_course("LiYingWang/Korea-workshop-202102-LW")
 We will use mulitple R packages to work on spatital data and you can install them by running the folllowing line in your R console: 
 
 ```r
-install.packages(c("rnaturalearth", "rnaturalearthdata", "ggplot2", "tidyverse", "sf", "sp","shadowtext", "ggmap", "ggspatial", "raster", "spatstat", "maptools"))
+install.packages(c("rnaturalearth", "rnaturalearthdata", "ggplot2", "tidyverse", "sf", "sp","shadowtext", "ggmap", "ggspatial", "raster", "spatstat", "maptools", "devtools"))
 ```
 ```r
 devtools::install_github('3wen/legendMap')

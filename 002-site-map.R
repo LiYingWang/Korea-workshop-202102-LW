@@ -53,6 +53,8 @@ site_Korea <-
   theme(axis.title.x = element_blank(),
         axis.title.y = element_blank())
 
+site_Korea
+
 # save the map
 ggsave(here::here("Korea-site-map.jpg"),
        width = 150,

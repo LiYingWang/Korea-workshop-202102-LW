@@ -37,4 +37,7 @@ hist(ann_r, main=NULL, las=1, breaks=40,
      col = "bisque",
      xlim = range(ann_p, ann_r))
 abline(v = ann_p, col="blue")
-```
+
+# calculate p-value
+N_greater <- sum(ann_r > ann_p)
+p <- min(N_greater + 1, n + 1 - N_greater) / (n +1)

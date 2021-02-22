@@ -1,6 +1,6 @@
 library(raster)
 
-# read in data from data folder
+# read in data from data folder. Raster data is downloaded from: http://www.earthenv.org/DEM
 Korea_raster1 <- raster(here::here("data/EarthEnv-DEM90_N35E125/EarthEnv-DEM90_N35E125.bil"))
 Korea_raster2 <- raster(here::here("data/EarthEnv-DEM90_N35E125/EarthEnv-DEM90_N30E125.bil"))
 
@@ -16,6 +16,7 @@ plot(Korea_raster) # take a look at raster data
 x_coord <- c(126, 126, 128.5, 128.5, 126)
 y_coord <- c(34.2, 36.5, 36.5, 34.2, 34.2)
 xym <- cbind(x_coord, y_coord)
+class(xym)
 
 library(sp)
 p = Polygon(xym) # convert the matrix to polygon
