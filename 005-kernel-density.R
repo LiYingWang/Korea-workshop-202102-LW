@@ -1,3 +1,5 @@
+# We plot density maps of site locations to identify any hot spots
+
 library(spatstat)
 library(maptools)
 

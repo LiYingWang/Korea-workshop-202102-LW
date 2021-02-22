@@ -1,3 +1,5 @@
+# We want to make a regional map to show our research area to include in our publication
+
 library(rnaturalearth) # provides world map
 library(rnaturalearthdata)
 

@@ -1,3 +1,5 @@
+# We learn how to convert raster data and crop an area we want for later analysis
+
 library(raster)
 
 # read in data from data folder. Raster data is downloaded from: http://www.earthenv.org/DEM

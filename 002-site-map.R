@@ -1,3 +1,5 @@
+# We make a detailed map to show site locations in larger scale suitable for publication
+
 # add site location
 site_location <-
   data.frame(location = c("A", "B"),

@@ -1,3 +1,6 @@
+# We simulate and test site distributions to see if their locations are random or clustered
+# This could hint any site selection patterns
+
 # get the mean distance for our observation
 ann_p <- mean(nndist(sites_ppp, k=1))
 n     <- 100 # number of simulations

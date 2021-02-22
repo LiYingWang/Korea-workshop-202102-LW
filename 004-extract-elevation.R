@@ -1,3 +1,6 @@
+# We visualize raster data and work on vector data to extract elevations of sites for comparison
+# This is helpful to explore any relationships between geography and site locations
+
 # cover to a dataframe for ggplot
 crop_DEM_df <- as.data.frame(crop_DEM, xy = TRUE)
 
