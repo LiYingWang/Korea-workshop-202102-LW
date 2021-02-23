@@ -2,7 +2,7 @@
 
 library(raster)
 
-# read in data from data folder. Raster data is downloaded from: http://www.earthenv.org/DEM
+# read in raster data (Robinson et al., 2014) downloaded from: http://www.earthenv.org/DEM
 Korea_raster1 <- raster(here::here("data/EarthEnv-DEM90_N35E125/EarthEnv-DEM90_N35E125.bil"))
 Korea_raster2 <- raster(here::here("data/EarthEnv-DEM90_N35E125/EarthEnv-DEM90_N30E125.bil"))
 
