@@ -5,7 +5,8 @@ Liying Wang, February 2021
 ## Overview
 
 In this workshop we will practice some techniques for visualization and analyzing
-spatial data using R. Here are the [slides](). The outline of this workshop as below:
+spatial data using R. Here are the [slides](https://docs.google.com/presentation/d/1Th7cpbUxBfw4p_biXXSJN38t3js7N8Yc/edit#slide=id.p11). 
+The outline of this workshop as below:
 
 1.  Make a regional map
 2.  Make a site map with labels
